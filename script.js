@@ -1,17 +1,41 @@
+const notes = [10, 15, 20, 8];
 
-console.log(document);
+const fruits = ['banane', 'fraise', 'pomme'];
 
-const prenom = document.getElementById('prenom');
-const nom = document.querySelector('#nom');
+// console.log(notes);
+// console.log(notes.length);
+// console.log(fruits);
+// console.log(fruits.length);
 
-console.log(prenom.value);
-console.log(prenom.id);
-console.log(prenom.type);
+// de 0 à 3
+for (let i = 0 ; i < fruits.length ; i++) {
+  console.log('Je mange le fruit : '+fruits[i]+' !');
+}
 
-console.log(nom.value);
-console.log(nom.id);
-console.log(nom.type);
+console.log('----')
+console.log('----')
+console.log('----')
+
+for (let fruit of fruits) {
+  if (fruit == 'fraise') {
+    continue;
+  }
+
+  console.log('Je mange le fruit : '+fruit+' !');
+}
+
+console.log('----')
+console.log('----')
+console.log('----')
+
+fruits.forEach((fruit) => {
+  console.log('Je mange le fruit : '+fruit+' !');
+});
 
 
 
-prenom.classList.toggle('test-class');
+const formGroups = document.querySelectorAll('body > main > form > .form-group');
+
+Array.from(formGroups).forEach((element) => {
+  element.remove()
+})
