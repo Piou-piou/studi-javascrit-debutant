@@ -1,0 +1,12 @@
+input {
+    border: 1px solid black;
+}
+
+.error {
+    color: #ff0000;
+    min-height: 20px;
+}
+
+.success {
+    border: 1px solid green;
+}
