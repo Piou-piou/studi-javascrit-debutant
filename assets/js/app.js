@@ -1,4 +1,7 @@
 const form = document.getElementById('form');
+const selectElement = document.getElementById('mySelect');
+const firstname = form.querySelector('#firstname');
+const misterCheckbox = form.querySelector('#mister');
 
 function clearFormValidation(form) {
   form.querySelectorAll('.error').forEach(element => {
@@ -71,4 +74,37 @@ form.querySelectorAll('input[type=text]').forEach((element) => {
       clearElementValidation(event.currentTarget);
     }
   });
+});
+
+
+
+
+firstname.addEventListener('mouseover', event => {
+  const tooltip = event.currentTarget.parentNode.querySelector('.tooltip');
+  tooltip.classList.add('visible');
+});
+
+firstname.addEventListener('mouseout', event => {
+  const tooltip = event.currentTarget.parentNode.querySelector('.tooltip');
+  tooltip.classList.remove('visible');
+});
+
+
+
+selectElement.addEventListener('change', function(event) {
+  const selectedValue = event.currentTarget.value;
+  console.log(`Vous avez sélectionné : ${selectedValue}`);
+});
+
+
+
+selectElement.addEventListener('change', function(event) {
+  const selectedValue = event.currentTarget.value;
+  console.log(`Vous avez sélectionné : ${selectedValue}`);
+});
+
+
+misterCheckbox.addEventListener('change', function(event) {
+  const isChecked = event.currentTarget.checked;
+  console.log(`Vous avez sélectionné : ${isChecked}`);
 });

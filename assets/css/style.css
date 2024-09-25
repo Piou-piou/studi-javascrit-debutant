@@ -2,6 +2,16 @@ input {
     border: 1px solid black;
 }
 
+.tooltip {
+    min-height: 20px;
+    color: blue;
+    visibility: hidden;
+}
+
+.tooltip.visible {
+    visibility: visible;
+}
+
 .error {
     color: #ff0000;
     min-height: 20px;
