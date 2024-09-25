@@ -10,6 +10,14 @@ function clearFormValidation(form) {
   });
 }
 
+function clearElementValidation(element) {
+  const errorDiv = element.parentNode.querySelector('.error');
+
+  if (errorDiv) {
+    errorDiv.innerHTML = '';
+  }
+}
+
 function writeFormErrorMessage(element, message) {
   const errorDiv = element.parentElement.querySelector('.error');
   errorDiv.innerHTML = message;
@@ -23,13 +31,13 @@ function validateFormElement(element) {
   element.classList.remove('success');
 
   if ('text' === element.type && element.min && element.value.length < element.min) {
-    writeFormErrorMessage(element, 'Le contenu du champs doit faire au minimum '+element.min+' caractères');
+    writeFormErrorMessage(element, 'Le contenu du champs doit faire au minimum ' + element.min + ' caractères');
 
     return false;
   }
 
   if ('number' === element.type && element.dataset.min && element.value < element.dataset.min) {
-    writeFormErrorMessage(element, 'Le nombre doit être supérieur à '+element.dataset.min);
+    writeFormErrorMessage(element, 'Le nombre doit être supérieur à ' + element.dataset.min);
 
     return false;
   }
@@ -54,4 +62,13 @@ form.addEventListener('submit', event => {
   if (errors === false) {
     event.currentTarget.submit();
   }
+});
+
+
+form.querySelectorAll('input[type=text]').forEach((element) => {
+  element.addEventListener('keyup', event => {
+    if (validateFormElement(event.currentTarget) === true) {
+      clearElementValidation(event.currentTarget);
+    }
+  });
 });
