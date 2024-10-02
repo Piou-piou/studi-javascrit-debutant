@@ -68,25 +68,23 @@ form.addEventListener('submit', event => {
 });
 
 
-form.querySelectorAll('input[type=text]').forEach((element) => {
+form.querySelectorAll('input').forEach((element) => {
   element.addEventListener('keyup', event => {
     if (validateFormElement(event.currentTarget) === true) {
       clearElementValidation(event.currentTarget);
     }
   });
-});
 
+  element.addEventListener('mouseover', event => {
+    const tooltip = event.currentTarget.parentNode.querySelector('.tooltip');
+    tooltip.classList.add('visible');
+  });
 
+  element.addEventListener('mouseout', event => {
+    const tooltip = event.currentTarget.parentNode.querySelector('.tooltip');
+    tooltip.classList.remove('visible');
+  });
 
-
-firstname.addEventListener('mouseover', event => {
-  const tooltip = event.currentTarget.parentNode.querySelector('.tooltip');
-  tooltip.classList.add('visible');
-});
-
-firstname.addEventListener('mouseout', event => {
-  const tooltip = event.currentTarget.parentNode.querySelector('.tooltip');
-  tooltip.classList.remove('visible');
 });
 
 
